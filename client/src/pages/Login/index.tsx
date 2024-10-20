@@ -31,13 +31,6 @@ const Login = () => {
     return (value / length) * (range[1] - range[0]) + range[0];
   };
 
-
-  useEffect(() => {
-    console.log('test');
-
-  }, [])
-
-
   useEffect(() => {
     const yRange = [-10, 10];
     const card: any = document.querySelector(
