@@ -17,7 +17,15 @@ jobs:
           node-version: '16'
       # 第三步 安装依赖
       - name: Install npm dependencies
-        run: npm install
+        run: |
+          echo "Installing client dependencies"
+          cd client
+          npm install
+          cd ..
+          echo "Installing server dependencies"
+          cd server
+          npm install
+          cd ..
       # 第四步 打包
       - name: 构建
         run: npm run build
