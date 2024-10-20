@@ -16,11 +16,10 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git checkout main
           git pull origin main
           git reset $(git merge-base origin/main HEAD)
           git add -A
-          git commit -m "Squashed commit from daily/1.0.2"
+          git commit -m "Squashed commit from daily/1.0.3"
           git push origin main
 
       - name: Set up Node.js
