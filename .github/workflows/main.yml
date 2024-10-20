@@ -5,7 +5,6 @@ on:
       - main
 jobs:
   build-squash-deploy:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -21,7 +20,7 @@ jobs:
           git pull origin main
           git reset $(git merge-base origin/main HEAD)
           git add -A
-          git commit -m "Squashed commit from PR #${{ github.event.pull_request.number }}"
+          git commit -m "Squashed commit from daily/1.0.2"
           git push origin main
 
       - name: Set up Node.js
