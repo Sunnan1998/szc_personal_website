@@ -1,0 +1,64 @@
+.login-container {
+  margin: -8px;
+  height: 100vh;
+
+  @keyframes rotation {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .login-btn {
+    width: 100%;
+    height: 40px;
+  }
+
+  .extra-login-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .extra-login-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 40px;
+      width: 40px;
+      border: 1px solid rgb(145, 202, 255);
+      border-radius: 50%;
+    }
+  }
+
+  .avater-wrap {
+    margin-bottom: 24px;
+
+    .avater {
+      border-radius: 50%;
+      width: 120px;
+    }
+  }
+
+  .captcha-wrap {
+    display: flex;
+    gap: 8px;
+
+    img {
+      height: 38px;
+      background: white;
+      border-radius: 5px;
+    }
+  }
+
+  .ant-pro-form-login-page-container {
+    background-color: rgba(0, 0, 0,0.65);
+    backdrop-filter: blur(2px);
+    transition: .3s;
+    transform: perspective(850px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  }
+
+  .ant-pro-form-login-page-container:hover {
+    box-shadow: -3px -3px 10px #54a291, 3px 3px 10px #a79d66, ;
+  }
+}

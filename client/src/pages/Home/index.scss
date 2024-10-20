@@ -1,0 +1,115 @@
+
+
+@function getShadows($n) {
+  $shadows: '#{random(100)}vw #{random(100)}vh #fff';
+  @for $i from 2 through $n {
+    $shadows: '#{$shadows}, #{random(100)}vw #{random(100)}vh #fff'
+  }
+  @return unquote($shadows)
+}
+
+
+.home-container {
+  height: 100vh;
+  margin: -8px;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+
+  $duration: 200s;
+  $count: 1000;
+
+  @for $i from 1 through 5 {
+    $duration: $duration / 2;
+    $count: floor($count / 2);
+    .layer#{$i} {
+      $size: #{$i}px;
+      position: fixed;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      left: 0;
+      top: 0;
+      box-shadow: getShadows($count);
+      animation: moveUp $duration linear infinite;
+
+      &::after {
+        content: '';
+        position: fixed;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        left: 0;
+        top: 100vh;
+        box-shadow: inherit;
+      }
+    }
+  }
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    color: #fff;
+    text-align: center;
+    font-family: 'lato', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    letter-spacing: 10px;
+    margin-top: -60px;
+    padding-left: 10px;
+    background: linear-gradient(white, #38495a);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .login-btn {
+    cursor: pointer;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    position: absolute;
+    overflow: hidden;
+    outline: none;
+    border: none;
+    right: 20px;
+    top: 20px;
+    z-index: 1;
+    color: white;
+  }
+
+  .login-btn::before {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    content: '';
+    background: rgb(145, 202, 255);
+    z-index: -2;
+    left: 50%;
+    top: 50%;
+    transform-origin: left top;
+    animation: rotation 2s linear infinite;
+  }
+
+  .login-btn::after {
+    position: absolute;
+    content: '';
+    --g: 2px;
+    width: calc(100% - var(--g) * 2);
+    height: calc(100% - var(--g) * 2);
+    background-color: rgb(15,17,22);
+    // backdrop-filter: blur(4px);
+    left: var(--g);
+    top: var(--g);
+    border: inherit;
+    z-index: -1;
+  }
+}
+
+@keyframes moveUp {
+  to {
+    transform: translateY(-100vh);
+  }
+}
