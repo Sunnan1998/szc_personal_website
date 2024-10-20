@@ -4,6 +4,7 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    # ref_name 分支名
     environment: ${{ github.ref_name }}
     steps:
       # 第一步 检测代码
@@ -18,9 +19,14 @@ jobs:
       - name: Install npm dependencies
         run: npm install
       # 第四步 打包
-      - name: Run ${{ vars.NPM_RUN }} task
-        run: npm run ${{ vars.NPM_RUN }}
-      # 第四步 上传至阿里云
+      - name: 构建
+        run: npm run build
+      # 第五步 打印日志
+      - name: Group logs
+        run: |
+          echo "::group::My group"
+          echo ${{ github.ref_name }}
+      # 第六步 上传至阿里云
       - name: Deploy to Aliyun
         uses: cross-the-world/scp-pipeline@master
         env:
@@ -32,4 +38,4 @@ jobs:
           pass: ${{ secrets.USER_PASS }}
           connect_timeout: 10s
           local: './dist/*'
-          remote: /home/app/web/vue3
+          remote: /home/app/web/sn
