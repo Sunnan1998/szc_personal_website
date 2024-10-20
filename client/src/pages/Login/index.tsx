@@ -10,7 +10,7 @@ import {
   TaobaoOutlined,
   FundViewOutlined,
 } from '@ant-design/icons';
-import { LoginFormPage, ProFormText } from '@ant-design/pro-components';
+// import { LoginFormPage, ProFormText } from '@ant-design/pro-components';
 import type { CSSProperties } from 'react';
 import './index.less';
 
@@ -93,7 +93,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      
+
       {/* <LoginFormPage
         // ref
         formRef={formRef}
