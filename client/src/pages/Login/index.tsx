@@ -53,7 +53,14 @@ const Login = () => {
 
   useEffect(() => {
     console.log('test');
-    
+
+  }, [])
+
+
+
+  useEffect(() => {
+    console.log('test1');
+
   }, [])
 
   const refreshCaptcha = () => {
