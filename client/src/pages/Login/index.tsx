@@ -93,7 +93,8 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <LoginFormPage
+      
+      {/* <LoginFormPage
         // ref
         formRef={formRef}
         submitter={{
@@ -253,7 +254,7 @@ const Login = () => {
             </div>
           )}
         </>
-      </LoginFormPage>
+      </LoginFormPage> */}
     </div>
   );
 };
