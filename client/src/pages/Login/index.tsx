@@ -37,11 +37,6 @@ const Login = () => {
 
   }, [])
 
-  useEffect(() => {
-    console.log('test1');
-
-  }, [])
-
 
   useEffect(() => {
     const yRange = [-10, 10];

@@ -1,7 +1,6 @@
 name: Build App and Deploy to Aliyun
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - main
 jobs:
