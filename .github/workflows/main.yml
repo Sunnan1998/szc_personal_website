@@ -1,6 +1,8 @@
 name: Build App and Deploy to Aliyun
-on: [push, pull_request]
-
+on:
+  push:
+    branches:
+       main
 jobs:
   build:
     runs-on: ubuntu-latest
