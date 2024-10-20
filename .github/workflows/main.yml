@@ -18,6 +18,8 @@ jobs:
       # 第三步 安装依赖
       - name: Install npm dependencies
         run: |
+          echo "Installing all dependencies"
+          npm install
           echo "Installing client dependencies"
           cd client
           npm install
