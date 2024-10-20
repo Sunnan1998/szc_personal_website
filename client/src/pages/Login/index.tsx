@@ -57,12 +57,6 @@ const Login = () => {
   }, [])
 
 
-
-  useEffect(() => {
-    console.log('test1');
-
-  }, [])
-
   const refreshCaptcha = () => {
     const imgCaptcha: any = document.getElementById('imgCaptcha');
     imgCaptcha.src = `/api/captcha?rad=${Math.random()}`;
