@@ -4,6 +4,7 @@ import routes from './config/routes'
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
+    exclude: ['@ant-design/pro-components'],
   },
   outputPath: '../dist/public/sn',
   history: { type: 'hash' },
